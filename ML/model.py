@@ -50,7 +50,7 @@ def prepare():
     return [X_train,X_test,y_train,y_test,hex_train,hex_test]
 
 # y = theta1*weighted_cost + theta2*distance +bias
-#score (predicted earning) = theta1 * earnings.total_net_earnings*ride_details.surge_multiplier*heat.msg.predictions.predicted_std + theta2*rides_details.distance_km
+#score = theta1 * earnings.total_net_earnings*ride_details.surge_multiplier*heat.msg.predictions.predicted_std + theta2*rides_details.distance_km
 def get_params(X_train,y_train):
     model = LinearRegression()
     model.fit(X_train, y_train)
