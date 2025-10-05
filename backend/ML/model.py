@@ -1,14 +1,24 @@
+import logging
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+from pathlib import Path
+
+logger = logging.getLogger(__name__)
+
 
 def prepare():
-    heat =  pd.read_csv("Force-Pushers---Smart-Earner-Assistant-\\csvs\\heatmap.csv") 
-    earnings = pd.read_csv("Force-Pushers---Smart-Earner-Assistant-\\csvs\\earnings_daily.csv")
-    surges = pd.read_csv("Force-Pushers---Smart-Earner-Assistant-\\csvs\\surge_by_hour.csv")
-    rides = pd.read_csv("Force-Pushers---Smart-Earner-Assistant-\\csvs\\rides_trips.csv")
+    # Resolve the repository root robustly from this file's location.
+    # model.py is at <repo>/backend/ML/model.py, so repo root is parents[2]
+    repo_root = Path(__file__).resolve().parents[2]
+    csv_dir = repo_root / "csvs"
+
+    heat = pd.read_csv(csv_dir / "heatmap.csv")
+    earnings = pd.read_csv(csv_dir / "earnings_daily.csv")
+    surges = pd.read_csv(csv_dir / "surge_by_hour.csv")
+    rides = pd.read_csv(csv_dir / "rides_trips.csv")
 
     df = rides.merge(
         earnings,
@@ -54,9 +64,9 @@ def prepare():
 def get_params(X_train,y_train):
     model = LinearRegression()
     model.fit(X_train, y_train)
-    print("theta1 =", model.coef_[0])
-    print("theta2 =", model.coef_[1])
-    print("Intercept =", model.intercept_)
+    logger.info("theta1 = %s", model.coef_[0])
+    logger.info("theta2 = %s", model.coef_[1])
+    logger.info("Intercept = %s", model.intercept_)
 
     return([model.coef_[0],model.coef_[1],model.intercept_])
 

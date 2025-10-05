@@ -7,4 +7,73 @@ body,
 }
 
 /* Leaflet map tweaks */
-#map { height: 100%; width: 100%; }
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+/* Custom selection pin */
+.custom-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom-pin svg {
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));
+}
+.leaflet-tooltip.pin-label {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  color: white !important;
+  border-radius: 4px !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+}
+
+/* Dropdown tweaks for city selector */
+.city-dropdown button {
+  width: 180px;
+  text-align: left;
+}
+
+/* small icon buttons next to dropdown */
+.icon-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: none;
+  background: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+.icon-button:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+/* Small widget layout for the right-hand about panel */
+.widget-row {
+  display: flex;
+  gap: 10px;
+  align-items: stretch; /* let children stretch to same height */
+  flex-wrap: wrap;
+}
+.widget-row > .widget-card {
+  flex: 1 1 0px; /* grow equally */
+  box-sizing: border-box;
+}
+.widget-card {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 8px;
+  border-radius: 8px;
+  min-width: 120px;
+  min-height: 64px; /* ensure a consistent height */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+}
+.widget-card.time-widget {
+  justify-content: center;
+}
