@@ -21,7 +21,6 @@ def hexes():
             lat, lng = hex_coords[h]
             items.append({"h3": h, "score": score, "lat": lat, "lng": lng})
 
-    # Limit to first 100 for testing
     print(items)
     return jsonify(items[:600])
 
