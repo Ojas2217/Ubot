@@ -1,6 +1,6 @@
 # Ubot   
 
-Ubot is a web application that visualizes driver earning potential across different regions in the Netherlands.  
+Ubot is a web application made at the JunctionX Delft hackathon that visualizes driver earning potential across different regions in the Netherlands.  
 It uses a **machine learning regression model** to assign a *score* to each hexagonal grid cell, helping drivers identify areas with higher potential earnings.  
 
 ---
@@ -69,3 +69,4 @@ The ML model was trained using **linear regression** on CSV data representing ri
 4. Start the backend from Ubot/backend/app.py
 
    Your frontend should now be live.
+
